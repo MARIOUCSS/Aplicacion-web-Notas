@@ -1,6 +1,7 @@
 const express=require('express');
 const exphbs=require('express-handlebars');
 const path=require('path');
+const morgan=require('morgan');
 //Initializations
 const app=express();
 //settings
@@ -19,6 +20,7 @@ const hbs = exphbs.create({
   app.engine(".hbs", hbs.engine);
   app.set("view engine", ".hbs");
 //midlewares
+app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 //Global variables
 //Routes
